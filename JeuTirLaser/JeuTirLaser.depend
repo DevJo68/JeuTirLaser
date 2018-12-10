@@ -1,0 +1,147 @@
+# depslib dependency file v1.0
+1543912485 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1543912485 c:\users\admin\documents\travaux codeblocks\jeutirlaser\point.h
+	<iosfwd>
+
+1543912485 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\winbgi.cpp
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	"graphics.h"
+
+1543912484 c:\users\admin\documents\travaux codeblocks\jeutirlaser\graphics.h
+
+1543912484 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\case.cpp
+	"case.h"
+
+1544104208 c:\users\admin\documents\travaux codeblocks\jeutirlaser\case.h
+	"point.h"
+
+1544170395 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\main.cpp
+	<iostream>
+	"graphics.h"
+	"case.h"
+	"terrain.h"
+
+1543912484 source:\\uha.fr\users\e1802373\documents\jeutirlaser\case.cpp
+	"case.h"
+
+1543912484 \\uha.fr\users\e1802373\documents\jeutirlaser\case.h
+	"point.h"
+
+1543912485 \\uha.fr\users\e1802373\documents\jeutirlaser\point.h
+	<iosfwd>
+
+1543912485 source:\\uha.fr\users\e1802373\documents\jeutirlaser\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1543912485 source:\\uha.fr\users\e1802373\documents\jeutirlaser\winbgi.cpp
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	"graphics.h"
+
+1543912484 \\uha.fr\users\e1802373\documents\jeutirlaser\graphics.h
+
+1543914207 source:\\uha.fr\users\e1802373\documents\jeutirlaser\terrain.cpp
+	"terrain.h"
+
+1543912485 \\uha.fr\users\e1802373\documents\jeutirlaser\terrain.h
+	<vector>
+	"case.h"
+	"point.h"
+	<iosfwd>
+	<iostream>
+
+1543914319 source:\\uha.fr\users\e1802373\documents\jeutirlaser\main.cpp
+	<iostream>
+	"graphics.h"
+	"case.h"
+	"terrain.h"
+
+1544108853 c:\users\admin\documents\travaux codeblocks\jeutirlaser\terrain.h
+	<vector>
+	"case.h"
+	"point.h"
+	<iosfwd>
+	<iostream>
+
+1544132486 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\terrain.cpp
+	"terrain.h"
+	"graphics.h"
+	"dessinateur.h"
+
+1544179022 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.cpp
+	"case.h"
+
+1544180686 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.h
+	"point.h"
+
+1544179023 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.h
+	<iosfwd>
+
+1544436994 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1544179023 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\winbgi.cpp
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	"graphics.h"
+
+1544179022 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\graphics.h
+
+1544434919 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.cpp
+	"terrain.h"
+	"graphics.h"
+	"dessinateur.h"
+
+1544179023 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.h
+	<vector>
+	"case.h"
+	"point.h"
+	<iosfwd>
+	<iostream>
+
+1544437740 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\main.cpp
+	<iostream>
+	"graphics.h"
+	"case.h"
+	"terrain.h"
+	"miroir.h"
+	"dessinateur.h"
+
+1544437202 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.cpp
+	"dessinateur.h"
+
+1544437029 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.h
+	"graphics.h"
+	"case.h"
+	"terrain.h"
+	"miroir.h"
+
+1544110563 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\dessinateur.cpp
+	"dessinateur.h"
+
+1544110563 c:\users\admin\documents\travaux codeblocks\jeutirlaser\dessinateur.h
+	"graphics.h"
+	"case.h"
+	"terrain.h"
+
+1544437044 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.cpp
+	"miroir.h"
+
+1544435711 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.h
+	"point.h"
+
