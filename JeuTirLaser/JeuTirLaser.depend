@@ -79,42 +79,42 @@
 	"graphics.h"
 	"dessinateur.h"
 
-1544179022 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.cpp
+1544618037 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.cpp
 	"case.h"
 
-1544180686 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.h
+1544618037 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\case.h
 	"point.h"
 
-1544179023 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.h
+1544618038 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.h
 	<iosfwd>
 
-1544436994 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.cpp
+1544618038 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\point.cpp
 	<iostream>
 	<cmath>
 	"point.h"
 
-1544179023 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\winbgi.cpp
+1544618039 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\winbgi.cpp
 	<windows.h>
 	<stddef.h>
 	<stdio.h>
 	<math.h>
 	"graphics.h"
 
-1544179022 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\graphics.h
+1544618038 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\graphics.h
 
-1544434919 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.cpp
+1544620263 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.cpp
 	"terrain.h"
 	"graphics.h"
 	"dessinateur.h"
 
-1544179023 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.h
+1544618039 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\terrain.h
 	<vector>
 	"case.h"
 	"point.h"
 	<iosfwd>
 	<iostream>
 
-1544437740 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\main.cpp
+1544620766 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\main.cpp
 	<iostream>
 	"graphics.h"
 	"case.h"
@@ -122,14 +122,15 @@
 	"miroir.h"
 	"dessinateur.h"
 
-1544437202 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.cpp
+1544620254 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.cpp
 	"dessinateur.h"
 
-1544437029 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.h
+1544620246 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\dessinateur.h
 	"graphics.h"
 	"case.h"
 	"terrain.h"
 	"miroir.h"
+	"cible.h"
 
 1544110563 source:c:\users\admin\documents\travaux codeblocks\jeutirlaser\dessinateur.cpp
 	"dessinateur.h"
@@ -139,9 +140,14 @@
 	"case.h"
 	"terrain.h"
 
-1544437044 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.cpp
+1544618038 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.cpp
 	"miroir.h"
 
-1544435711 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.h
+1544618038 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\miroir.h
 	"point.h"
+
+1544620229 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\cible.cpp
+	"cible.h"
+
+1544619686 \\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\cible.h
 

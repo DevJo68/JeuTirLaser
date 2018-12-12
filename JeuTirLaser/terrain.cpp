@@ -81,6 +81,7 @@ void terrain::ajouteCase(int i, int j ,Case *c){
 }
 
 
+
 terrain::~terrain()
 {
     //dtor
