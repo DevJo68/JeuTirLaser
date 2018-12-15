@@ -16,7 +16,7 @@ public:
   point();
 /**
   Constructor with cartesian coordinates
-  @param x x-coordinate
+  @param x x-coordinate///@return un bool avec la valeur true si le laser est passé par cette case, false dans l'autre cas
   @param y y-coordinate
 */
   point(double x, double y);

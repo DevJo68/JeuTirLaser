@@ -2,24 +2,32 @@
 
 
 
-void  dessinateur::dessinateurCase(const Case *c) const{
-   rectangle(c->coinSupG().x(),c->coinSupG().y(),c->coinInfD().x(),c->coinInfD().y());
+void  dessinateur::dessinateurCaseVide(double x1, double y1, double x2, double y2) const{
+   rectangle(x1,y1,x2,y2);
 
  }
 
-
-void  dessinateur::dessinateurCaseMiroir(const Case *c,const miroir *m) const{
-
-   rectangle(c->coinSupG().x(),c->coinSupG().y(),c->coinInfD().x(),c->coinInfD().y());
-   line(m->depart().x(), m->depart().y(), m->arrivee().x(), m->arrivee().y());
-
+ void dessinateur::dessinateurCaseLigne(double x1, double y1, double x2, double y2)const {
+    line(x1,y1,x2,y1);
+    line(x2,y1,x2,y2);
+	line(x2,y2,x1,y2);
+	line(x1,y2,x1,y1);
  }
 
-void dessinateur::dessinateurCaseCible(const Case *c, const cible *cib ) const{
-   rectangle(c->coinSupG().x(),c->coinSupG().y(),c->coinInfD().x(),c->coinInfD().y());
-   circle(cib->cibleX(),cib->cibleY(),cib->cibleRayon());
-   //circle(cib->cibleX(),cib->cibleY(),cib->cibleRayon()/2);
-}
+
+void  dessinateur::dessinateurCaseMiroir(double x1, double y1, double x2, double y2) const{
+   rectangle(x1,y1,x2,y2);
+   line(x1,y1,x2,y2);
+ }
+
+//void dessinateur::dessinateurCaseCible(const Case *c) const{
+
+ //  cible cib{ c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3};
+
+  // rectangle(c->coinSupG().x(),c->coinSupG().y(),c->coinInfD().x(),c->coinInfD().y());
+  // circle( c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3);
+   //circle( c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3/2);
+//}
 
 
 

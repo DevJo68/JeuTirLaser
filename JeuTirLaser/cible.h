@@ -5,9 +5,9 @@
 class cible
 {
     public:
-        cible(int x, int y, int rayon);
-        int cibleX() const;
-        int cibleY() const;
+        cible(double x, double y, int rayon);
+        double cibleX() const;
+        double cibleY() const;
         int cibleRayon() const;
         void print() const;
         virtual ~cible();

@@ -1,6 +1,4 @@
 #include "terrain.h"
-#include "graphics.h"
-#include "dessinateur.h"
 
 
     terrain::terrain(int ligne, int colonne)
@@ -27,7 +25,7 @@
                       geom::point p1{(c->coinSupG().x()*j)+c->coinSupG().x() ,(c->coinSupG().y()*i)+ c->coinSupG().y()};
                       geom::point p2{p1.x() + c->largeur() ,p1.y() + c->longeur()};
 
-                      Case *caux = new Case{p1,p2};
+                      caseVide*caux = new caseVide{p1,p2};
                       ajouteCase(i,j,caux);
               }
 
@@ -47,8 +45,6 @@
               }
    }
 
-
-
      }
 
   std::vector< std::vector<Case*>>& terrain::getTerrain(){
@@ -66,20 +62,17 @@
 
                    std::cout << " x1 " <<d_terrain[i][j]->coinSupG().x() << " y1 "<<  d_terrain[i][j]->coinSupG().y() << std::endl;
                     std::cout << " x2 "<<  d_terrain[i][j]->coinInfD().x() << " x2 " << d_terrain[i][j]->coinInfD().y() << std::endl;
-                  d.dessinateurCase(d_terrain[i][j]);
-
+                  d.dessinateurCaseLigne(d_terrain[i][j]->coinSupG().x(),d_terrain[i][j]->coinSupG().y(),d_terrain[i][j]->coinInfD().x(),d_terrain[i][j]->coinInfD().y());
+                  d.dessinateurCaseVide(d_terrain[i][j]->coinSupG().x(),d_terrain[i][j]->coinSupG().y(),d_terrain[i][j]->coinInfD().x(),d_terrain[i][j]->coinInfD().y());
               }
    }
 
    }
 
 
-
-
 void terrain::ajouteCase(int i, int j ,Case *c){
    d_terrain[i][j] = c;
 }
-
 
 
 terrain::~terrain()

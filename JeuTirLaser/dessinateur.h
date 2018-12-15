@@ -2,19 +2,14 @@
 #define DESSINATEURE_H
 
 #include "graphics.h"
-#include "case.h"
-#include "terrain.h"
-#include "miroir.h"
-#include "cible.h"
 
 class dessinateur{
 
      public:
-       void dessinateurCase(const Case *c) const;
-       void dessinateurLigne(const Case *c);
-       void dessinateurCaseMiroir(const Case *c, const miroir *m ) const;
-       void dessinateurCaseCible(const Case *c, const cible *cib ) const;
-
+       void dessinateurCaseVide(double x1, double y1, double x2, double y2) const;
+       void dessinateurCaseLigne(double x1, double y1, double x2, double y2) const;
+       void dessinateurCaseMiroir(double x1, double y1, double x2, double y2) const;
+    //   void dessinateurCaseCible(const Case *cib ) const;
 
 };
 

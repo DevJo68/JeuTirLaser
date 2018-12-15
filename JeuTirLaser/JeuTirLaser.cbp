@@ -35,6 +35,14 @@
 		<Unit filename="JeuTirLaser.cbp" />
 		<Unit filename="case.cpp" />
 		<Unit filename="case.h" />
+		<Unit filename="casecible.cpp" />
+		<Unit filename="casecible.h" />
+		<Unit filename="caselaser.cpp" />
+		<Unit filename="caselaser.h" />
+		<Unit filename="casemiroir.cpp" />
+		<Unit filename="casemiroir.h" />
+		<Unit filename="casemur.cpp" />
+		<Unit filename="casemur.h" />
 		<Unit filename="cible.cpp" />
 		<Unit filename="cible.h" />
 		<Unit filename="dessinateur.cpp" />

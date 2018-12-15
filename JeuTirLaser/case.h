@@ -25,18 +25,30 @@
 
         ///@return la longeur de la case
         int longeur();
-        ///@return la largeur de la case
+
+        ///@return la largeur de la ca///@return un point qui réprésente le coin inférieur droitse
         int largeur();
 
+        ///@return un bool avec la valeur true si le laser est passé par cette case, false dans l'autre cas
+        bool ContientLaser() const;
 
+        /// change l'état de la case dans le cas ou le laser est passer par celle-ci
+        void changeEtatCase();
+
+        /// affiche une case
+        virtual void print() const = 0;
 
         virtual ~Case();
 
     protected:
+        geom::point d_coinSupG;
+        geom::point d_coinInfD;
+        bool d_contientLaser;
 
-    private:
+   /* private:
        geom::point d_coinSupG;
        geom::point d_coinInfD;
+       bool d_contientLaser;*/
 };
 
 

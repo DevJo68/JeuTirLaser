@@ -1,12 +1,12 @@
 #include "case.h"
 
     Case::Case():
-        d_coinSupG{25,25},d_coinInfD{50,50}
+        d_coinSupG{25,25},d_coinInfD{50,50}, d_contientLaser{false}
     {
     }
 
     Case::Case(geom::point p1, geom::point p2):
-        d_coinSupG{p1},d_coinInfD{p2}
+        d_coinSupG{p1},d_coinInfD{p2},d_contientLaser{false}
     {
     }
 
@@ -25,6 +25,11 @@
      geom::point Case::coinInfD() const{
        return d_coinInfD;
      }
+
+     bool Case::ContientLaser()const {
+       return d_contientLaser;
+     }
+
 
     Case::~Case()
     {

@@ -2,6 +2,7 @@
 #define TERRAIN_H
 #include <vector>
 #include "case.h"
+#include "casevide.h"
 #include "point.h"
 #include<iosfwd>
 #include <iostream>
@@ -24,14 +25,14 @@ class terrain
         ///@return un vecteur de vecteur de pointeur sur des cases qui vont constituer notre terrain
         std::vector<std::vector<Case*>>& getTerrain();
 
-         /// Ajoute une case au terrain
+        /// Ajoute une case au terrain
         void ajouteCase(int i, int j,Case *c);
         /**
           Affiche le terrain
-          @param ost un flot de sortie
         */
         void print() const;
 
+        ///@return un int représentant la taille du terrain
         int size();
 
         virtual ~terrain();
