@@ -55,15 +55,13 @@
       return d_terrain.size() ;
    }
 
-   void terrain::print() const{
-       dessinateur d{};
+   void terrain::afficheTerrain() const{
        for(int i = 0; i < d_terrain.size(); i++){
               for(int j = 0 ; j < d_terrain[i].size() ; j++){
 
                    std::cout << " x1 " <<d_terrain[i][j]->coinSupG().x() << " y1 "<<  d_terrain[i][j]->coinSupG().y() << std::endl;
                     std::cout << " x2 "<<  d_terrain[i][j]->coinInfD().x() << " x2 " << d_terrain[i][j]->coinInfD().y() << std::endl;
-                  d.dessinateurCaseLigne(d_terrain[i][j]->coinSupG().x(),d_terrain[i][j]->coinSupG().y(),d_terrain[i][j]->coinInfD().x(),d_terrain[i][j]->coinInfD().y());
-                  d.dessinateurCaseVide(d_terrain[i][j]->coinSupG().x(),d_terrain[i][j]->coinSupG().y(),d_terrain[i][j]->coinInfD().x(),d_terrain[i][j]->coinInfD().y());
+                    d_terrain[i][j]->print();
               }
    }
 

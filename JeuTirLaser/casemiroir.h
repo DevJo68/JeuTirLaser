@@ -13,7 +13,6 @@ class caseMiroir : public Case {
         caseMiroir(geom::point p1, geom::point p2, miroir *m);
         virtual void print() const override;
         miroir* getMiroir() const;
-        virtual ~caseMiroir();
 
     private:
         miroir *d_miroir;

@@ -35,6 +35,8 @@
         /// change l'état de la case dans le cas ou le laser est passer par celle-ci
         void changeEtatCase();
 
+
+
         /// affiche une case
         virtual void print() const = 0;
 

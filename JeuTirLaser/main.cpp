@@ -18,7 +18,7 @@ int main()
     opengraphsize(1500,1500);
     setcolor(WHITE);
     std::cout  << " Taille du terrain que nous avons construit "<< t.size() << std::endl ;
-    t.print();
+    t.afficheTerrain();
     getch();
     closegraph();
 

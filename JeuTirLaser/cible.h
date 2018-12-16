@@ -5,6 +5,7 @@
 class cible
 {
     public:
+
         cible(double x, double y, int rayon);
         double cibleX() const;
         double cibleY() const;
@@ -13,8 +14,8 @@ class cible
         virtual ~cible();
 
     private:
-        int d_x;
-        int d_y;
+        double d_x;
+        double d_y;
         int d_rayon;
 };
 

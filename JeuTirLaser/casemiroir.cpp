@@ -13,7 +13,3 @@ void caseMiroir::print() const{
   d.dessinateurCaseMiroir(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
 }
 
-caseMiroir::~caseMiroir()
-{
-    //dtor
-}

@@ -20,6 +20,7 @@ class terrain
         */
         terrain(int ligne, int colonne);
 
+         /// Crée un terrain et l'initialise avec les différentes types de cases
         void initialize(Case *c);
 
         ///@return un vecteur de vecteur de pointeur sur des cases qui vont constituer notre terrain
@@ -30,7 +31,7 @@ class terrain
         /**
           Affiche le terrain
         */
-        void print() const;
+        void afficheTerrain() const;
 
         ///@return un int représentant la taille du terrain
         int size();

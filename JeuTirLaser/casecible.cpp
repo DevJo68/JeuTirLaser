@@ -4,8 +4,3 @@ caseCible::caseCible()
 {
     //ctor
 }
-
-caseCible::~caseCible()
-{
-    //dtor
-}

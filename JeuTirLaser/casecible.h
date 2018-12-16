@@ -6,7 +6,6 @@ class caseCible
 {
     public:
         caseCible();
-        virtual ~caseCible();
 
     protected:
 
