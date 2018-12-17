@@ -4,7 +4,6 @@
 
 #include "miroir.h"
 #include "case.h"
-#include "dessinateur.h"
 
 
 class caseMiroir : public Case {

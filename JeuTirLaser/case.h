@@ -2,6 +2,7 @@
 #define CASE_H
 
 #include "point.h"
+#include "dessinateur.h"
 
  class Case
 {

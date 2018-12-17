@@ -1,16 +1,14 @@
 #include <iostream>
 
-#include "casevide.h"
-#include "terrain.h"
-#include "miroir.h"
 
+#include "game.h"
 
 using namespace std;
 
 int main()
 {
 
-
+   /*
     terrain t{20,20};
     caseVide c{};
     caseVide *p = &c;
@@ -21,6 +19,9 @@ int main()
     t.afficheTerrain();
     getch();
     closegraph();
+    */
+    game g{};
+    g.run();
 
 
     return 0;

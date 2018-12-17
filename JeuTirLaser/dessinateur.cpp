@@ -20,14 +20,11 @@ void  dessinateur::dessinateurCaseMiroir(double x1, double y1, double x2, double
    line(x1,y1,x2,y2);
  }
 
-//void dessinateur::dessinateurCaseCible(const Case *c) const{
-
- //  cible cib{ c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3};
-
-  // rectangle(c->coinSupG().x(),c->coinSupG().y(),c->coinInfD().x(),c->coinInfD().y());
-  // circle( c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3);
-   //circle( c->coinSupG().x()+(c->coinSupG().x()/2) , c->coinInfD().y()- c->longeur()/2 , c->largeur()/3/2);
-//}
+void dessinateur::dessinateurCaseCible(double x1, double y1, double x2, double y2) const{
+   rectangle(x1,y1,x2,y2);
+   circle( x1,y2-(y2-y1)/2,(x2-x1)/3);
+   circle( x1 + x1/2,y2-(y2-y1)/2,(x2-x1)/3/2);
+}
 
 
 

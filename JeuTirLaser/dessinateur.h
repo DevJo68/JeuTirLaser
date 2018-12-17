@@ -9,7 +9,7 @@ class dessinateur{
        void dessinateurCaseVide(double x1, double y1, double x2, double y2) const;
        void dessinateurCaseLigne(double x1, double y1, double x2, double y2) const;
        void dessinateurCaseMiroir(double x1, double y1, double x2, double y2) const;
-    //   void dessinateurCaseCible(const Case *cib ) const;
+       void dessinateurCaseCible(double x1, double y1, double x2, double y2) const;
 
 };
 

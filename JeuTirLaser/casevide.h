@@ -2,7 +2,7 @@
 #define CASEVIDE_H
 
 #include "case.h"
-#include "dessinateur.h"
+
 
 class caseVide : public Case
 {
