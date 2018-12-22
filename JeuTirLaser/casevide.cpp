@@ -9,7 +9,6 @@ caseVide::caseVide(geom::point p1, geom::point p2):
 {}
 
  void caseVide::print() const{
-    dessinateur d{};
-    d.dessinateurCaseVide(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
+    d_dessinateur.dessinateurCaseVide(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
  }
 

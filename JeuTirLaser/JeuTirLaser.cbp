@@ -53,6 +53,8 @@
 		<Unit filename="cible.h" />
 		<Unit filename="dessinateur.cpp" />
 		<Unit filename="dessinateur.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="miroir.cpp" />

@@ -16,11 +16,18 @@
     terrain t{lig,col};
 
     std::cout << "Combien de case miroir désirez vous dans votre terrain ? "<< std::endl;
-    int nbMiroir, nbCible = 1,nbLaser = 1, nbMur=0 /*n'existe pas encore pour le moment*/;
+    int nbM =0;
+    t.setNbCible(1);
+    t.setNbMur(0);
+    t.setNbLaser(1);
 
-    std::cin>>nbMiroir;
+    std::cin>>nbM;
+
+
+    t.setNbMiroir(nbM);
+
     caseVide *p = &c;
-    t.initialize(p, nbMiroir, nbLaser, nbMur, nbCible);
+    t.initialize(p);
     t.afficheTerrain();
 
 
@@ -46,12 +53,17 @@
 
     /* On saisie ensuite le nb d'élement à mettre sur le terrain */
     std::cout << "Combien de case miroir désirez vous dans votre terrain ? "<< std::endl;
-    int nbMiroir, nbCible = 1,nbLaser = 1, nbMur=0 /*n'existe pas encore pour le moment*/;
-
+    int nbMiroir;
+    t.setNbCible(1);
+    t.setNbMur(0);
+    t.setNbLaser(1);
     std::cin>>nbMiroir;
+
+    t.setNbMiroir(nbMiroir);
+
     caseVide *p = &c;
     // On initialise le terrain avec les différents éléments
-    t.initialize(p, nbMiroir, nbLaser, nbMur, nbCible);
+    t.initialize(p);
     //On l'affiche
     t.afficheTerrain();
 

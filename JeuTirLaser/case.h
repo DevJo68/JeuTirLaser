@@ -46,6 +46,7 @@
     protected:
         geom::point d_coinSupG;
         geom::point d_coinInfD;
+        dessinateur d_dessinateur;
         bool d_contientLaser;
 
    /* private:

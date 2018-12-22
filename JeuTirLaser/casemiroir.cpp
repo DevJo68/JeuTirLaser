@@ -9,7 +9,6 @@ miroir* caseMiroir::getMiroir() const{
 }
 
 void caseMiroir::print() const{
-  dessinateur d{};
-  d.dessinateurCaseMiroir(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
+  d_dessinateur.dessinateurCaseMiroir(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
 }
 

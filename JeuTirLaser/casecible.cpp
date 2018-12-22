@@ -9,7 +9,6 @@ cible* caseCible::getCible() const{
 }
 
 void caseCible::print() const{
-  dessinateur d{};
-  d.dessinateurCaseCible(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
+  d_dessinateur.dessinateurCaseCible(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
 }
 

@@ -22,8 +22,8 @@ void  dessinateur::dessinateurCaseMiroir(double x1, double y1, double x2, double
 
 void dessinateur::dessinateurCaseCible(double x1, double y1, double x2, double y2) const{
    rectangle(x1,y1,x2,y2);
-   circle( x1,y2-(y2-y1)/2,(x2-x1)/3);
-   circle( x1 + x1/2,y2-(y2-y1)/2,(x2-x1)/3/2);
+   circle(x1+ x1/2,y2-(y2-y1)/2,(x2-x1)/3);
+   circle(x1 + x1/2,y2-(y2-y1)/2,(x2-x1)/3/2);
 }
 
 
