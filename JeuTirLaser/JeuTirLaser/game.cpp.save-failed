@@ -1,0 +1,7 @@
+#include "game.h"
+
+ void game::run(){
+   std::cout << "Voulez crée une case avec des coordonnées par défauts ? (oui) o / (non) n"<< std::endl;
+   char reponse;
+   std::cin>>reponse;
+ }
