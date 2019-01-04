@@ -23,13 +23,23 @@
 
     std::cin>>nbM;
 
-
     t.setNbMiroir(nbM);
 
     caseVide *p = &c;
     t.initialize(p);
-    t.afficheTerrain();
+    //On fait tourner le jeu ici
+    opengraphsize(( p->longeur() * (t.size() * 1.5) ) , ( p->longeur() * (t.size() * 1.5) ) );
+    setcolor(WHITE);
 
+   while(1){
+      t.afficheTerrain();
+      t.deplaceLaserSurTerrain();
+      t.collisionLaser();
+      t.afficheTerrain();
+      delay(0.0000000001);
+    }
+    getch();
+    closegraph();
 
    }
    else{
@@ -66,6 +76,7 @@
     t.initialize(p);
     //On l'affiche
     t.afficheTerrain();
+
 
    }
  }

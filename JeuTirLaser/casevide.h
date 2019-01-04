@@ -8,7 +8,7 @@ class caseVide : public Case
 {
     public:
         caseVide();
-        caseVide(geom::point p1, geom::point p2);
+        caseVide(const geom::point& p1,const geom::point& p2);
         virtual void print() const override;
 
     protected:

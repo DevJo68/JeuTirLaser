@@ -9,6 +9,7 @@
 #include "casemiroir.h"
 #include "cible.h"
 #include "casecible.h"
+#include "caselaser.h"
 #include <time.h>
 #include<iosfwd>
 #include <iostream>
@@ -26,8 +27,22 @@ class terrain
         */
         terrain(int ligne, int colonne);
 
-         /// Crée un terrain et l'initialise avec les différentes types de cases
+        /// Crée un terrain et l'initialise avec les différentes types de cases
         void initialize(Case *c);
+
+        /// ajoute des cases vides au terrain
+        void creerCaseVide(Case*c);
+
+        /// ajoute des cases miroir sur le terrain a des coordonées i et j tiré au hasard ou  bien à l'aide de la souris
+        void creerCaseMiroir();
+
+        /// ajoute des cases mur sur le terrain a des coordonées i et j tirée au hasard
+        void creerCaseMur();
+
+        /// ajoute des cases cible sur le terrain a des coordonées i et j tirée au hasard
+        void creerCaseCible();
+        /// ajoute des cases laser sur le terrain a des coordonées i et j tirée au hasard
+        void creerCaseLaser();
 
         ///@return un vecteur de vecteur de pointeur sur des cases qui vont constituer notre terrain
         std::vector<std::vector<Case*>>& getTerrain();
@@ -38,16 +53,21 @@ class terrain
         /// @return Retourne une case du terrain récupérer grâce au indice i et j donnée en paramètre
         Case* recupereCase(int i, int j) const;
 
+        caseLaser* recupereLaser() const;
+
         /// Remplace la case courante par la case donnée en paramètre
         void remplaceCase(int i, int j,Case *c);
 
         /// Détruit la case donnee en paramaètre
         void detruireCase(int i , int j);
 
+        /// Déplace le laser sur le terrain
+        void deplaceLaserSurTerrain();
+
         /**
           Affiche le terrain
         */
-        void afficheTerrain() const;
+        void afficheTerrain();
 
         ///@return un int représentant la taille du terrain
         int size();
@@ -88,7 +108,33 @@ class terrain
         */
         void setNbCible(int nbcible);
 
-        virtual ~terrain();
+        /**
+          Méthode qui permet d'effectuer les actions qui vont faire en sorte que le jeu fonctionne
+        */
+        void startGame();
+
+        ///@return un double représentant la limite en haut du terrain pour le déplacement du laser
+        double limiteTerrainHaut();
+
+        ///@return un double représentant la limite en bas du terrain pour le déplacement du laser
+        double limiteTerrainBas();
+
+        ///@return un double représentant la limite à gauche du terrain pour le déplacement du laser
+        double limiteTerrainGauche();
+
+        ///@return un double représentant la limite à droite du terrain pour le déplacement du laser
+        double limiteTerrainDroite();
+
+        /**
+          Foncton qui va gérer la collision du laser avec les autres éléments du terrain et intéragir en conséquence
+        */
+        void collisionLaser();
+
+        /**
+         Parcours le terrain et modifie l'état de la case correspondant au coordonées données en paramètres
+        */
+        void ChangeEtatCaseTerrain(const geom::point& p1, const geom::point& p2);
+
 
     protected:
 
@@ -98,6 +144,8 @@ class terrain
         int d_nbmur;
         int d_nbcible;
         int d_nblaser;
+        caseLaser* d_laser;
+
 };
 
 

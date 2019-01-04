@@ -4,7 +4,7 @@ caseVide::caseVide():
     Case()
 {}
 
-caseVide::caseVide(geom::point p1, geom::point p2):
+caseVide::caseVide(const geom::point& p1, const geom::point& p2):
     Case(p1,p2)
 {}
 

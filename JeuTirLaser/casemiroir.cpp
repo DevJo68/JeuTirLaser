@@ -1,6 +1,6 @@
 #include "casemiroir.h"
 
-caseMiroir::caseMiroir(geom::point p1, geom::point p2, miroir *m):
+caseMiroir::caseMiroir(const geom::point& p1, const geom::point& p2, miroir *m):
     Case{p1,p2},d_miroir{m}
 {}
 

@@ -74,6 +74,10 @@ void point::move(double dx, double dy)
   d_x += dx; d_y += dy;
 }
 
+point& point::getPoint(){
+  return *this;
+}
+
 point& point::operator*=(double val)
 {
   d_x *= val; d_y *= val;

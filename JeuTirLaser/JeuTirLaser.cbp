@@ -56,6 +56,8 @@
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
 		<Unit filename="graphics.h" />
+		<Unit filename="laser.cpp" />
+		<Unit filename="laser.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="miroir.cpp" />
 		<Unit filename="miroir.h" />

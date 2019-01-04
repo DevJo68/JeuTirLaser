@@ -79,6 +79,8 @@ public:
 */
   void move(double dx, double dy);
 
+  point& getPoint();
+
 /**
   Operator *=: the coordinates of the point are multiplicated by the real
   @param val the value by which the coordinates will be multiplicated
