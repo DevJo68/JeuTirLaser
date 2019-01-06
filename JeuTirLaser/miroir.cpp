@@ -10,6 +10,7 @@ miroir::miroir(const geom::point& pDepart ,const  geom::point& pArrivee):
  geom::point miroir::depart() const{
    return d_depart;
  }
+
  geom::point miroir::arrivee() const{
    return d_arrivee;
  }

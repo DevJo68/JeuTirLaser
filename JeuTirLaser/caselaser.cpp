@@ -7,7 +7,10 @@ caseLaser::caseLaser(const geom::point& p1, const  geom::point& p2, laser *l):
 }
 
 void caseLaser::print() const{
-  d_dessinateur.dessinateurCaseLaser(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
+  if(d_laser->isHorizontal())
+      d_dessinateur.dessinateurCaseLaserHorizontal(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
+  else
+     d_dessinateur.dessinateurCaseLaser(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
 }
 
 geom::point caseLaser::coinHGLaser(){
@@ -26,11 +29,18 @@ void caseLaser::deplaceLaserEnInfD(double x, double y){
   d_laser->pBasDroit().moveTo(x,y);
 }
 
+bool caseLaser::isHorizontal() const{
+   return d_laser->isHorizontal();
+}
+
+void caseLaser::setHorizontal(){
+  d_laser->setHorizontal();
+}
+
+void caseLaser::setVertical(){
+  d_laser->setVertical();
+}
+
 int caseLaser::typeCase(){
   return 5;
 }
-
-
-
-
-

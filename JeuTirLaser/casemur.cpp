@@ -8,3 +8,9 @@ caseMur::caseMur(geom::point p1, geom::point p2, mur *m):
 void caseMur::print() const{
   d_dessinateur.dessinateurCaseMur(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
 }
+
+virtual int typeCase() override{
+ return 4;
+}
+
+

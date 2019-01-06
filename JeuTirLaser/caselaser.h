@@ -16,9 +16,9 @@ class caseLaser : public Case{
         geom::point coinBDLaser();
         void deplaceLaserEnHautG(double x, double y);
         void deplaceLaserEnInfD(double x, double y);
-        void deplaceLaser();
-
-    protected:
+        bool isHorizontal() const;
+        void setHorizontal();
+        void setVertical();
 
     private:
         laser *d_laser;

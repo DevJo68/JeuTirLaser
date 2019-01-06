@@ -13,7 +13,7 @@
 
 
      void terrain::initialize(Case *c){
-
+              srand(time(NULL));
               creerCaseVide(c);
               creerCaseMiroir();
               creerCaseCible();
@@ -38,12 +38,12 @@
     void terrain::creerCaseMiroir(){
 
        for(int k = 0; k < nbMiroir(); k++){
-                     int indiceLigneAleatoire = rand() % d_terrain.size();
-                     int indiceColonneAleatoire = rand() % d_terrain[indiceLigneAleatoire].size();
-
-
+                     int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                     int indiceColonneAleatoire = rand() % (d_terrain.size()-1);
+                     std::cout << indiceColonneAleatoire << " " << indiceLigneAleatoire << std::endl;
                      miroir *pm = new miroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()}  ;
-                        if(k%2 == 0)
+
+                    if(k%2 == 0)
                         pm->inclineG();
                      else
                         pm->inclineD();
@@ -60,11 +60,12 @@
       for(int l = 0; l < nbCible(); l++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
-                     cible *pc = new cible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().x() + recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().x()/2,
-                     recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD().y()-(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD().y()- recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().y())/2 ,
-                    (recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD().x() - recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().x())/3/2};
+
+                     cible *pc = new cible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),8};
+
 
                      caseCible *cib = new caseCible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pc};
+
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cib);
                }
 
@@ -97,6 +98,10 @@
    void terrain::afficheTerrain(){
            for(int i = 0; i < d_terrain.size(); i++){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
+
+                       std::cout <<  "indices des cases " << i << " " << j << std::endl;
+                       std::cout << " Coordonées des points du terrain "<< d_terrain[i][j]->coinSupG() << d_terrain[i][j]->coinInfD() << std::endl;
+                       std::cout << "Type des cases " << d_terrain[i][j]->typeCase() << std::endl;
                         d_terrain[i][j]->print();
                   }
             }
@@ -123,6 +128,7 @@ void terrain::remplaceCase(int i, int j,Case *c){
 void terrain::detruireCase(int i , int j){
   delete  d_terrain[i][j];
 }
+
 
 
 int terrain::nbMiroir() const{
@@ -161,15 +167,10 @@ void terrain::setNbCible(int nbcible){
 void terrain::deplaceLaserSurTerrain(){
 
 
-
-
        if(GetAsyncKeyState(VK_UP)){
-         /* if(d_laser->isHorizontal()){
-                std::cout << "Attention on va changer de sens  VK_UP" << std::endl;
-            deplaceEnSupG(coinInfD().x(),coinSupG().y());
-            deplaceDeSupG(0,-100);
+         if(d_laser->isHorizontal()){
             d_laser->setVertical();
-          }*/
+          }
 
 
           if(d_laser->coinSupG().y() >= limiteTerrainHaut()){
@@ -178,15 +179,13 @@ void terrain::deplaceLaserSurTerrain(){
              d_laser->deplaceDe(0,0);
           }
            cleardevice();
+           afficheTerrain();
 
       }
       if(GetAsyncKeyState(VK_DOWN)){
-        /*if(d_laser->isHorizontal()){
-                std::cout << "Attention on va changer de sens  VK_DOWN" << std::endl;
-            deplaceEnInfD(coinSupG().x(),coinInfD().y());
-            deplaceDeSupG(0,100);
+        if(d_laser->isHorizontal()){
             d_laser->setVertical();
-          }*/
+          }
 
            if(d_laser->coinInfD().y() <= limiteTerrainBas()){
             d_laser->deplaceDe(0,5);
@@ -196,14 +195,12 @@ void terrain::deplaceLaserSurTerrain(){
 
 
           cleardevice();
+          afficheTerrain();
       }
       if(GetAsyncKeyState(VK_LEFT)){
-        /*if(!d_laser->isHorizontal()){
-                std::cout << "Attention on va changer de sens  VK_LEFT" << std::endl;
-            deplaceEn(coinInfD().x(),coinInfD().y());
-            deplaceDeInfD(100,0);
+        if(!d_laser->isHorizontal()){
             d_laser->setHorizontal();
-          }*/
+          }
 
           if(d_laser->coinSupG().x() >= limiteTerrainGauche()){
             d_laser->deplaceDe(-5,0);
@@ -211,13 +208,12 @@ void terrain::deplaceLaserSurTerrain(){
             d_laser->deplaceDe(0,0);
           }
             cleardevice();
+            afficheTerrain();
       }
       if(GetAsyncKeyState(VK_RIGHT)){
-          /*if(!d_laser->isHorizontal()){
+          if(!d_laser->isHorizontal()){
              d_laser->setHorizontal();
-             deplaceEn(coinInfD().x(),coinInfD().y());
-             deplaceDeInfD(100,0);
-          }*/
+          }
           if(d_laser->coinSupG().x() <= limiteTerrainDroite()-20){
              d_laser->deplaceDe(5,0);
           }else{
@@ -225,16 +221,17 @@ void terrain::deplaceLaserSurTerrain(){
           }
 
           cleardevice();
+          afficheTerrain();
       }
 
 }
 
 double terrain::limiteTerrainHaut(){
-  return recupereCase(0,0)->coinSupG().y();
+  return recupereCase(0,0)->coinSupG().y()-5;
 }
 
 double terrain::limiteTerrainBas(){
-  return recupereCase(size()- 1,size()- 1)->coinInfD().y()*2 ;
+  return recupereCase(size()- 1,size()- 1)->coinInfD().y()-5;
 }
 
 double terrain::limiteTerrainGauche(){
@@ -251,7 +248,7 @@ void terrain::collisionLaser(){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
 
                       //On test si la case contient un laser ou pas
-                      if(d_laser->coinSupG().x() >= d_terrain[i][j]->coinSupG().x() && d_laser->coinInfD().x() <= d_terrain[i][j]->coinInfD().x() &&
+                      if(d_laser->coinSupG().x() >= d_terrain[i][j]->coinSupG().x()&& d_laser->coinInfD().x() <= d_terrain[i][j]->coinInfD().x() &&
                          d_laser->coinSupG().y() >= d_terrain[i][j]->coinSupG().y() &&  d_laser->coinInfD().y() <= d_terrain[i][j]->coinInfD().y() ){
 
                           //Modification de la case qui contient à présent le laser

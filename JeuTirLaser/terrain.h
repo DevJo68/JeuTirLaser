@@ -13,6 +13,7 @@
 #include <time.h>
 #include<iosfwd>
 #include <iostream>
+#include <ctime>
 
 
 
@@ -144,6 +145,8 @@ class terrain
          Place des miroirs sur le terrain
         */
         void placeMiroir();
+
+        int nombreDejaTirer(std::vector<int>& tab );
 
 
     protected:

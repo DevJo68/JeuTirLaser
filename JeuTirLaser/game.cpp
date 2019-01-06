@@ -30,13 +30,12 @@
     //On fait tourner le jeu ici
     opengraphsize(( p->longeur() * (t.size() * 1.5) ) , ( p->longeur() * (t.size() * 1.5) ) );
     setcolor(WHITE);
-
    while(1){
       t.afficheTerrain();
       t.deplaceLaserSurTerrain();
       t.collisionLaser();
       t.afficheTerrain();
-      delay(0.0000000001);
+      delay(0.00000000000000000001);
     }
     getch();
     closegraph();

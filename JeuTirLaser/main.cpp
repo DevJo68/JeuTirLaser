@@ -8,10 +8,10 @@ using namespace std;
 int main()
 {
 
-    /* game g{};
-     g.run();*/
+     game g{};
+     g.run();
 
-
+    /*
      geom::point p1{25,25};
      geom::point p2{50,50};
      miroir* m = new miroir{p1,p2};
@@ -29,7 +29,7 @@ int main()
 
      getch();
      closegraph();
-
+    */
 
     return 0;
 }

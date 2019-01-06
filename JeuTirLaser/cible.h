@@ -1,12 +1,13 @@
 #ifndef CIBLE_H
 #define CIBLE_H
 
+#include "point.h"
 
 class cible
 {
     public:
 
-        cible(double x, double y, int rayon);
+        cible(const geom::point& p1, const geom::point& p2, int rayon);
         double cibleX() const;
         double cibleY() const;
         int cibleRayon() const;
