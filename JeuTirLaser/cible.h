@@ -10,8 +10,6 @@ class cible
         double cibleX() const;
         double cibleY() const;
         int cibleRayon() const;
-        void print() const;
-        virtual ~cible();
 
     private:
         double d_x;

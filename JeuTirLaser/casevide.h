@@ -9,6 +9,7 @@ class caseVide : public Case
     public:
         caseVide();
         caseVide(const geom::point& p1,const geom::point& p2);
+        virtual int  typeCase() override;
         virtual void print() const override;
 
     protected:

@@ -135,6 +135,16 @@ class terrain
         */
         void ChangeEtatCaseTerrain(const geom::point& p1, const geom::point& p2);
 
+        /**
+         Fonction qui va devier le tir du laser
+        */
+        void devierTir(Case *c);
+
+        /**
+         Place des miroirs sur le terrain
+        */
+        void placeMiroir();
+
 
     protected:
 
@@ -145,6 +155,7 @@ class terrain
         int d_nbcible;
         int d_nblaser;
         caseLaser* d_laser;
+        std::vector<caseMiroir*> d_miroirs;
 
 };
 

@@ -16,7 +16,3 @@ cible::cible(double x, double y, int rayon):
     return d_rayon;
   }
 
-cible::~cible()
-{
-    //dtor
-}

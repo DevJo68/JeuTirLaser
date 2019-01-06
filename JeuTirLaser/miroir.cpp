@@ -1,7 +1,7 @@
 #include "miroir.h"
 
-miroir::miroir(geom::point pDepart , geom::point pArrivee):
-    d_depart{pDepart}, d_arrivee{pArrivee}, d_inclinaison{'d'}
+miroir::miroir(const geom::point& pDepart ,const  geom::point& pArrivee):
+    d_depart{pDepart}, d_arrivee{pArrivee}, d_inclinaison{'g'}
 {}
 
  char miroir::inclinaison() const{
@@ -27,7 +27,7 @@ miroir::miroir(geom::point pDepart , geom::point pArrivee):
 
   void miroir::inclineD() {
 
-   double mx = -(d_arrivee.x() - d_depart.x());
+   double mx = (d_arrivee.x() - d_depart.x()) + (d_arrivee.x() - d_depart.x())  ;
    double mx2 = d_arrivee.x() - d_depart.x() ;
 
    d_depart.moveTo(mx,d_depart.y());
@@ -36,9 +36,3 @@ miroir::miroir(geom::point pDepart , geom::point pArrivee):
 
  }
 
-
-
-miroir::~miroir()
-{
-    //dtor
-}

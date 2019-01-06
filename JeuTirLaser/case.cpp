@@ -61,5 +61,11 @@
        d_coinInfD.moveTo(x,y);
      }
 
+     bool Case::operator==(const Case& c)   const{
+
+       return (d_coinSupG.x() == c.coinSupG().x()) && (d_coinSupG.y() == c.coinSupG().y())
+       && (d_coinInfD.x() == c.coinInfD().x()) && (d_coinInfD.y() == c.coinInfD().y() );
+     }
+
 
 

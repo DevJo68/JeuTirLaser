@@ -4,6 +4,7 @@
 #include "point.h"
 #include "graphics.h"
 #include "dessinateur.h"
+#include <string>
 
  class Case
 {
@@ -58,16 +59,20 @@
         /// affiche une case
         virtual void print() const = 0;
 
+        virtual int typeCase() = 0;
+
+       /**
+          Operator ==:deux cases sont égales  si leurs coordonées sont égale
+          @param la case à comparer avec l'objet case courant
+          @return un boolean vrai si les cases sont égal false sinon
+       */
+       bool operator==(const Case& c)   const;
+
     protected:
         geom::point d_coinSupG;
         geom::point d_coinInfD;
         dessinateur d_dessinateur;
         bool d_contientLaser;
-
-   /* private:
-       geom::point d_coinSupG;
-       geom::point d_coinInfD;
-       bool d_contientLaser;*/
 };
 
 

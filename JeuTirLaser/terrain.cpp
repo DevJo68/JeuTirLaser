@@ -42,10 +42,16 @@
                      int indiceColonneAleatoire = rand() % d_terrain[indiceLigneAleatoire].size();
 
 
-                     miroir m{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()};
-                     miroir *pm = &m;
+                     miroir *pm = new miroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()}  ;
+                        if(k%2 == 0)
+                        pm->inclineG();
+                     else
+                        pm->inclineD();
+
+                      std::cout << " Valeurs des points" << pm->arrivee() << pm->depart() << pm->inclinaison() << std::endl;
                      caseMiroir *cm = new caseMiroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pm};
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cm);
+                     d_miroirs.push_back(cm);
                }
     }
 
@@ -71,7 +77,7 @@
                      int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
 
                      laser *pl = new laser{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(), recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),false};
-                     std::cout  << "Coordonnée de la case laser "<< pl->pHautGauche() << pl->pBasDroit() << std::endl;
+                     std::cout  << " Coordonnée de la case laser "<< pl->pHautGauche() << pl->pBasDroit() << std::endl;
                      caseLaser*cl = new caseLaser{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pl};
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cl);
                      d_laser = cl;
@@ -91,12 +97,7 @@
    void terrain::afficheTerrain(){
            for(int i = 0; i < d_terrain.size(); i++){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
-                      /* std::cout << " x1 " <<d_terrain[i][j]->coinSupG().x() << " y1 \n "<<  d_terrain[i][j]->coinSupG().y() << std::endl;
-                       std::cout << " x2 "<<  d_terrain[i][j]->coinInfD().x() << " x2 \n" << d_terrain[i][j]->coinInfD().y() << std::endl;
-                       std::cout << " x1 " << &d_terrain[i][j] << std::endl;*/
-
                         d_terrain[i][j]->print();
-                        std::cout << "Si la case contient un laser ou pas " << d_terrain[i][j]->contientLaser() << std::endl;
                   }
             }
    }
@@ -159,8 +160,8 @@ void terrain::setNbCible(int nbcible){
 
 void terrain::deplaceLaserSurTerrain(){
 
-       std::cout << "Coordonnées du laser"<< d_laser->coinHGLaser() << " " << d_laser->coinBDLaser() << std::endl;
-       std::cout << " Coordonées de la case laser " << d_laser->coinSupG() << " " << d_laser->coinInfD() << std::endl;
+
+
 
        if(GetAsyncKeyState(VK_UP)){
          /* if(d_laser->isHorizontal()){
@@ -169,6 +170,8 @@ void terrain::deplaceLaserSurTerrain(){
             deplaceDeSupG(0,-100);
             d_laser->setVertical();
           }*/
+
+
           if(d_laser->coinSupG().y() >= limiteTerrainHaut()){
              d_laser->deplaceDe(0,-5);
           }else{
@@ -223,12 +226,11 @@ void terrain::deplaceLaserSurTerrain(){
 
           cleardevice();
       }
-   //d_laser->deplaceLaser();
 
 }
 
 double terrain::limiteTerrainHaut(){
-  return recupereCase(0,0)->coinSupG().y()*2.1;
+  return recupereCase(0,0)->coinSupG().y();
 }
 
 double terrain::limiteTerrainBas(){
@@ -248,12 +250,12 @@ void terrain::collisionLaser(){
     for(int i = 0; i < d_terrain.size(); i++){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
 
+                      //On test si la case contient un laser ou pas
                       if(d_laser->coinSupG().x() >= d_terrain[i][j]->coinSupG().x() && d_laser->coinInfD().x() <= d_terrain[i][j]->coinInfD().x() &&
                          d_laser->coinSupG().y() >= d_terrain[i][j]->coinSupG().y() &&  d_laser->coinInfD().y() <= d_terrain[i][j]->coinInfD().y() ){
 
                           //Modification de la case qui contient à présent le laser
                           d_terrain[i][j]->changeEtatCase();
-
 
                           //Modification de l'état de l'ancienne case laser  qui ne contient plus le laser
                           ChangeEtatCaseTerrain(d_laser->coinSupG(), d_laser->coinInfD());
@@ -266,24 +268,86 @@ void terrain::collisionLaser(){
                           d_laser->deplaceLaserEnHautG(d_laser->coinSupG().x(), d_laser->coinSupG().y());
                           d_laser->deplaceLaserEnInfD(d_laser->coinInfD().x(), d_laser->coinInfD().y());
 
-                           /* if(){
 
-                            }
-
-                            if(){
-
-                            }
-
-                            if(){
-
-                            }
-
-                            if(){
-
-                            }   */
+                         //Si c'est une case miroir
+                         if(d_terrain[i][j]->typeCase() ==  2){
+                            devierTir(d_terrain[i][j]);
                          }
+
+                         //Si c'est une case cible
+                         if(d_terrain[i][j]->typeCase() ==  3){
+                            //On détruit la cible et on arrête le jeu
+                            caseVide* newCase = new caseVide{d_terrain[i][j]->coinSupG(),d_terrain[i][j]->coinInfD()};
+                            d_terrain[i][j] = newCase;
+                            int nbcible = nbCible() - 1;
+                            setNbCible(nbcible);
+                         }
+
+                         //Si c'est une case mur
+                         //if(d_terrain[i][j]->typeCase() == )
                   }
             }
+   }
+}
+
+void terrain::devierTir(Case *c){
+
+     for(int i = 0; i < d_miroirs.size(); i++ ){
+
+                                if(d_miroirs[i] == c){
+                                    std::cout << "Je suis rentrer youpi !!" << std::endl;
+
+                                      if(d_miroirs[i]->inclinaisonMiroir() == 'g'){
+
+                                          if(GetAsyncKeyState(VK_UP)){
+
+                                              d_laser->deplaceDeSupG(-d_miroirs[i]->longeur(),0);
+                                              d_laser->deplaceDeInfD(-d_miroirs[i]->longeur(),0);
+                                           }
+
+                                          if(GetAsyncKeyState(VK_DOWN)){
+                                              d_laser->deplaceDeSupG(d_miroirs[i]->longeur(),0);
+                                              d_laser->deplaceDeInfD(d_miroirs[i]->longeur(),0);
+                                           }
+                                           if(GetAsyncKeyState(VK_LEFT)){
+                                              d_laser->deplaceDeSupG(0,-d_miroirs[i]->longeur());
+                                              d_laser->deplaceDeInfD(0,-d_miroirs[i]->longeur());
+                                           }
+
+                                           if(GetAsyncKeyState(VK_RIGHT)){
+
+                                              d_laser->deplaceDeSupG(0,d_miroirs[i]->longeur());
+                                              d_laser->deplaceDeInfD(0,d_miroirs[i]->longeur());
+                                          }
+
+                                        }else{
+
+                                          if(GetAsyncKeyState(VK_UP)){
+                                              d_laser->deplaceDeSupG(d_miroirs[i]->longeur(),0);
+                                              d_laser->deplaceDeInfD(d_miroirs[i]->longeur(),0);
+                                          }
+
+                                          if(GetAsyncKeyState(VK_DOWN)){
+                                              d_laser->deplaceDeSupG(-d_miroirs[i]->longeur(),0);
+                                              d_laser->deplaceDeInfD(-d_miroirs[i]->longeur(),0);
+                                          }
+
+                                          if(GetAsyncKeyState(VK_LEFT)){
+                                              d_laser->deplaceDeSupG(0,d_miroirs[i]->longeur());
+                                              d_laser->deplaceDeInfD(0,d_miroirs[i]->longeur());
+                                           }
+
+                                           if(GetAsyncKeyState(VK_RIGHT)){
+
+                                              d_laser->deplaceDeSupG(0,-d_miroirs[i]->longeur());
+                                              d_laser->deplaceDeInfD(0,-d_miroirs[i]->longeur());
+                                          }
+
+                                        }
+                                }
+
+                            }
+
 }
 
 void terrain::ChangeEtatCaseTerrain(const geom::point& p1, const geom::point& p2){

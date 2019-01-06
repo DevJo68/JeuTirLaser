@@ -171,51 +171,52 @@
 1545046798 source:\\uha.fr\users\e1802373\documents\tp c++\jeutirlaser\casemiroir.cpp
 	"casemiroir.h"
 
-1546540145 source:c:\users\joelb\documents\projet c++\jeutirlaser\case.cpp
+1546691837 source:c:\users\joelb\documents\projet c++\jeutirlaser\case.cpp
 	"case.h"
 
-1546455514 c:\users\joelb\documents\projet c++\jeutirlaser\case.h
+1546686820 c:\users\joelb\documents\projet c++\jeutirlaser\case.h
 	"point.h"
 	"graphics.h"
 	"dessinateur.h"
+	<string>
 
 1546107414 c:\users\joelb\documents\projet c++\jeutirlaser\point.h
 	<iosfwd>
 
-1545404843 source:c:\users\joelb\documents\projet c++\jeutirlaser\casecible.cpp
+1546724647 source:c:\users\joelb\documents\projet c++\jeutirlaser\casecible.cpp
 	"casecible.h"
 
-1545402089 c:\users\joelb\documents\projet c++\jeutirlaser\casecible.h
+1546724637 c:\users\joelb\documents\projet c++\jeutirlaser\casecible.h
 	"point.h"
 	"cible.h"
 	"case.h"
 
-1546542578 source:c:\users\joelb\documents\projet c++\jeutirlaser\caselaser.cpp
+1546685554 source:c:\users\joelb\documents\projet c++\jeutirlaser\caselaser.cpp
 	"caselaser.h"
 
-1546542365 c:\users\joelb\documents\projet c++\jeutirlaser\caselaser.h
+1546685548 c:\users\joelb\documents\projet c++\jeutirlaser\caselaser.h
 	<windows.h>
 	"point.h"
 	"laser.h"
 	"case.h"
 
-1546209126 source:c:\users\joelb\documents\projet c++\jeutirlaser\casemiroir.cpp
+1546704037 source:c:\users\joelb\documents\projet c++\jeutirlaser\casemiroir.cpp
 	"casemiroir.h"
 
-1546209094 c:\users\joelb\documents\projet c++\jeutirlaser\casemiroir.h
+1546703464 c:\users\joelb\documents\projet c++\jeutirlaser\casemiroir.h
 	"miroir.h"
 	"case.h"
 
-1545402089 c:\users\joelb\documents\projet c++\jeutirlaser\miroir.h
+1546724558 c:\users\joelb\documents\projet c++\jeutirlaser\miroir.h
 	"point.h"
 
-1545856805 c:\users\joelb\documents\projet c++\jeutirlaser\dessinateur.h
+1546726246 c:\users\joelb\documents\projet c++\jeutirlaser\dessinateur.h
 	"graphics.h"
 	<iostream>
 
 1545402089 c:\users\joelb\documents\projet c++\jeutirlaser\graphics.h
 
-1546538984 c:\users\joelb\documents\projet c++\jeutirlaser\terrain.h
+1546726861 c:\users\joelb\documents\projet c++\jeutirlaser\terrain.h
 	<vector>
 	"case.h"
 	"casevide.h"
@@ -229,26 +230,29 @@
 	<iosfwd>
 	<iostream>
 
-1545402089 c:\users\joelb\documents\projet c++\jeutirlaser\cible.h
+1546724538 c:\users\joelb\documents\projet c++\jeutirlaser\cible.h
 
-1545402089 source:c:\users\joelb\documents\projet c++\jeutirlaser\casemur.cpp
+1546726593 source:c:\users\joelb\documents\projet c++\jeutirlaser\casemur.cpp
 	"casemur.h"
 
-1545402089 c:\users\joelb\documents\projet c++\jeutirlaser\casemur.h
+1546726481 c:\users\joelb\documents\projet c++\jeutirlaser\casemur.h
+	"case.h"
+	"mur.h"
 
-1545402089 source:c:\users\joelb\documents\projet c++\jeutirlaser\cible.cpp
+1546724484 source:c:\users\joelb\documents\projet c++\jeutirlaser\cible.cpp
 	"cible.h"
 
-1546472149 source:c:\users\joelb\documents\projet c++\jeutirlaser\dessinateur.cpp
+1546726606 source:c:\users\joelb\documents\projet c++\jeutirlaser\dessinateur.cpp
 	"dessinateur.h"
 
-1546357102 source:c:\users\joelb\documents\projet c++\jeutirlaser\main.cpp
+1546723954 source:c:\users\joelb\documents\projet c++\jeutirlaser\main.cpp
 	<iostream>
 	<vector>
 	"game.h"
 	"casevide.h"
+	"casemiroir.h"
 
-1545402089 source:c:\users\joelb\documents\projet c++\jeutirlaser\miroir.cpp
+1546704511 source:c:\users\joelb\documents\projet c++\jeutirlaser\miroir.cpp
 	"miroir.h"
 
 1546107331 source:c:\users\joelb\documents\projet c++\jeutirlaser\point.cpp
@@ -256,13 +260,13 @@
 	<cmath>
 	"point.h"
 
-1546542617 source:c:\users\joelb\documents\projet c++\jeutirlaser\terrain.cpp
+1546701196 source:c:\users\joelb\documents\projet c++\jeutirlaser\terrain.cpp
 	"terrain.h"
 
-1546209073 c:\users\joelb\documents\projet c++\jeutirlaser\casevide.h
+1546684813 c:\users\joelb\documents\projet c++\jeutirlaser\casevide.h
 	"case.h"
 
-1546209043 source:c:\users\joelb\documents\projet c++\jeutirlaser\casevide.cpp
+1546684838 source:c:\users\joelb\documents\projet c++\jeutirlaser\casevide.cpp
 	"casevide.h"
 
 1545402089 source:c:\users\joelb\documents\projet c++\jeutirlaser\winbgi.cpp
@@ -408,4 +412,23 @@
 
 1546436887 c:\users\joelb\documents\projet c++\jeutirlaser\laser.h
 	"point.h"
+
+1546726065 c:\users\joelb\documents\projet c++\jeutirlaser\mur.h
+	"point.h"
+
+1546724475 source:c:\users\joelb\documents\projet c++\jeutirlaser\monstre.cpp
+	"monstre.h"
+
+1546724578 c:\users\joelb\documents\projet c++\jeutirlaser\monstre.h
+
+1546726085 source:c:\users\joelb\documents\projet c++\jeutirlaser\mur.cpp
+	"mur.h"
+	"point.h"
+
+1546726566 source:c:\users\joelb\documents\projet c++\jeutirlaser\casemonstre.cpp
+	"casemonstre.h"
+
+1546726527 c:\users\joelb\documents\projet c++\jeutirlaser\casemonstre.h
+	"case.h"
+	"monstre.h"
 

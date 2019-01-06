@@ -12,3 +12,7 @@ caseVide::caseVide(const geom::point& p1, const geom::point& p2):
     d_dessinateur.dessinateurCaseVide(coinSupG().x(),coinSupG().y(),coinInfD().x(),coinInfD().y());
  }
 
+ int  caseVide::typeCase(){
+   return 1 ;
+ }
+

@@ -12,6 +12,8 @@ class dessinateur{
        void dessinateurCaseMiroir(double x1, double y1, double x2, double y2) const;
        void dessinateurCaseCible(double x1, double y1, double x2, double y2) const;
        void dessinateurCaseLaser(double x1, double y1, double x2, double y2) const;
+       void dessinateurCaseMonstre(double x1, double y1, double x2, double y2) const;
+       void dessinateurCaseMur(double x1, double y1, double x2, double y2)const ;
 
 };
 

@@ -10,7 +10,7 @@ class caseCible : public Case
     public:
         caseCible(geom::point p1, geom::point p2, cible *c);
         virtual void print() const override;
-        cible* getCible() const;
+        virtual int typeCase() override;
 
     protected:
 
