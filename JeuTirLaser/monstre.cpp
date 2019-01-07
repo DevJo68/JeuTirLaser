@@ -1,8 +1,9 @@
 #include "monstre.h"
 
-monstre::monstre(double x, double y, int rayon):
-    d_x{x},d_y{y},d_rayon{rayon}
+monstre::monstre(const geom::point& p1, const geom::point& p2, int rayon):
+    d_x{(p1.x()+p2.x())/2},d_y{(p1.y()+p2.y())/2},d_rayon{rayon}
 {}
+
 
  double monstre::monstreX() const{
     return d_x;

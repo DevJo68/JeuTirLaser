@@ -1,11 +1,11 @@
 #ifndef MONSTRE_H
 #define MONSTRE_H
 
-
+#include "point.h"
 class monstre
 {
     public:
-        monstre(double x, double y, int rayon);
+        monstre(const geom::point& p1, const geom::point& p2, int rayon);
         double monstreX() const;
         double monstreY() const;
         int monstreRayon() const;

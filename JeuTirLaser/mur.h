@@ -6,7 +6,7 @@ class mur
 {
     public:
 
-        mur(geom::point droite,geom::point gauche,geom::point haut,geom::point bas);
+        mur(const geom::point& droite, const geom::point& gauche, const geom::point& haut, const geom::point& bas);
         geom::point droite() const;
         geom::point gauche() const;
         geom::point haut() const;

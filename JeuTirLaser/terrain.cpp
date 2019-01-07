@@ -17,6 +17,8 @@
               creerCaseVide(c);
               creerCaseMiroir();
               creerCaseCible();
+              creerCaseMonstre();
+              creerCaseMur();
               creerCaseLaser();
 
    }
@@ -40,16 +42,26 @@
        for(int k = 0; k < nbMiroir(); k++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain.size()-1);
-                     std::cout << indiceColonneAleatoire << " " << indiceLigneAleatoire << std::endl;
-                     miroir *pm = new miroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()}  ;
+                    // std::cout << indiceLigneAleatoire << " " << indiceColonneAleatoire << std::endl;
+                    // std::cout << "Voici les coordonnées du point récupérer " << recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG() << recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD() << std::endl;
+                     miroir *pm = new miroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()};
+
+                     if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 5 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 3 ||
+                        recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 6 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 4) {
+                         srand(3);
+                         int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                         int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+                       }
 
                     if(k%2 == 0)
                         pm->inclineG();
                      else
                         pm->inclineD();
 
-                      std::cout << " Valeurs des points" << pm->arrivee() << pm->depart() << pm->inclinaison() << std::endl;
+                     //std::cout << " Valeurs des points" << pm->arrivee() << pm->depart() << pm->inclinaison() << std::endl;
                      caseMiroir *cm = new caseMiroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pm};
+                    // std::cout << " les indices " << indiceLigneAleatoire << indiceColonneAleatoire << std::endl;
+                    // std::cout << " Les coordonnées des cases " << cm->coinSupG() << " " << cm->coinInfD() << std::endl;
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cm);
                      d_miroirs.push_back(cm);
                }
@@ -60,6 +72,13 @@
       for(int l = 0; l < nbCible(); l++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+
+                      if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 2 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 5 ||
+                        recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 6 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 4){
+                         srand(3);
+                         int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                         int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+                       }
 
                      cible *pc = new cible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),8};
 
@@ -73,9 +92,16 @@
 
     void terrain::creerCaseLaser(){
 
-               for(int m = 0; m < nbLaser(); m++){
+               for(int i = 0; i < nbLaser(); i++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+
+                     if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 2 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 3 ||
+                        recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 6 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 4){
+                         srand(3);
+                         int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                         int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+                       }
 
                      laser *pl = new laser{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(), recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),false};
                      std::cout  << " Coordonnée de la case laser "<< pl->pHautGauche() << pl->pBasDroit() << std::endl;
@@ -85,6 +111,53 @@
                }
     }
 
+    void terrain::creerCaseMonstre(){
+
+      for(int m = 0; m < nbMonstre(); m++){
+                     int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                     int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+
+                      if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 2 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 5 ||
+                        recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 3 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 4){
+                         srand(3);
+                         int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                         int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+                       }
+
+                     monstre *pmons = new monstre{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),8};
+
+
+                     caseMonstre *cmons = new caseMonstre{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pmons};
+
+                     remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cmons);
+               }
+
+    }
+
+    void terrain::creerCaseMur(){
+
+        for(int n = 0; n < nbMur() ; n++){
+                     int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                     int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+
+                      if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 2 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 5 ||
+                        recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 3 || recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 6){
+                         srand(3);
+                         int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
+                         int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
+                       }
+
+                    geom::point x3{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().x()+recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->longeur(), recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG().y()};
+                    geom::point x4{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD().x()-recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->longeur(), recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD().y()};
+
+                     mur *pmur = new mur{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),x3,x4};
+
+
+                    caseMur *cmur = new caseMur{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pmur};
+
+                     remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cmur);
+               }
+    }
 
 
   std::vector< std::vector<Case*>>& terrain::getTerrain(){
@@ -99,9 +172,9 @@
            for(int i = 0; i < d_terrain.size(); i++){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
 
-                       std::cout <<  "indices des cases " << i << " " << j << std::endl;
-                       std::cout << " Coordonées des points du terrain "<< d_terrain[i][j]->coinSupG() << d_terrain[i][j]->coinInfD() << std::endl;
-                       std::cout << "Type des cases " << d_terrain[i][j]->typeCase() << std::endl;
+                     //  std::cout <<  "indices des cases " << i << " " << j << std::endl;
+                     //  std::cout << " Coordonées des points du terrain "<< d_terrain[i][j]->coinSupG() << d_terrain[i][j]->coinInfD() << std::endl;
+                     //  std::cout << "Type des cases " << d_terrain[i][j]->typeCase() << std::endl;
                         d_terrain[i][j]->print();
                   }
             }
@@ -129,6 +202,21 @@ void terrain::detruireCase(int i , int j){
   delete  d_terrain[i][j];
 }
 
+void terrain::verifGagner(){
+  if(nbCible() == 0){
+     int x = 300 , y = 200;
+     char* Score =  reinterpret_cast<char*>(nbScore());
+    settextjustify(RIGHT_TEXT,CENTER_TEXT);
+    settextstyle(TRIPLEX_FONT,HORIZ_DIR,5);
+    outtextxy(x, y, "Gagné !");
+    outtextxy(x, y+100," Votre score ");
+    outtextxy(x, y+200,Score);
+    getch();
+    closegraph();
+  }
+
+}
+
 
 
 int terrain::nbMiroir() const{
@@ -139,6 +227,10 @@ int terrain::nbMur() const{
   return d_nbmur;
 }
 
+int terrain::nbMonstre() const{
+  return d_nbmonstre;
+}
+
 
 int terrain::nbLaser() const{
   return d_nblaser;
@@ -147,6 +239,11 @@ int terrain::nbLaser() const{
 int terrain::nbCible() const{
   return d_nbcible;
 }
+
+int terrain::nbScore() const {
+ return d_score;
+}
+
 
 void terrain::setNbMiroir(int nbmiroir){
   d_nbmiroir = nbmiroir;
@@ -162,6 +259,14 @@ void terrain::setNbLaser(int nblaser){
 
 void terrain::setNbCible(int nbcible){
    d_nbcible = nbcible;
+}
+
+void terrain::setNbMonstre(int nbmonstre){
+   d_nbmonstre = nbmonstre;
+}
+
+void terrain::setScore(int score){
+   d_score = d_score + score;
 }
 
 void terrain::deplaceLaserSurTerrain(){
@@ -248,8 +353,8 @@ void terrain::collisionLaser(){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
 
                       //On test si la case contient un laser ou pas
-                      if(d_laser->coinSupG().x() >= d_terrain[i][j]->coinSupG().x()&& d_laser->coinInfD().x() <= d_terrain[i][j]->coinInfD().x() &&
-                         d_laser->coinSupG().y() >= d_terrain[i][j]->coinSupG().y() &&  d_laser->coinInfD().y() <= d_terrain[i][j]->coinInfD().y() ){
+                      if(d_laser->coinSupG().x() >= d_terrain[i][j]->coinSupG().x() && d_laser->coinInfD().x() <= d_terrain[i][j]->coinInfD().x() &&
+                         d_laser->coinSupG().y()>= d_terrain[i][j]->coinSupG().y() &&  d_laser->coinInfD().y() <= d_terrain[i][j]->coinInfD().y() ){
 
                           //Modification de la case qui contient à présent le laser
                           d_terrain[i][j]->changeEtatCase();
@@ -278,10 +383,24 @@ void terrain::collisionLaser(){
                             d_terrain[i][j] = newCase;
                             int nbcible = nbCible() - 1;
                             setNbCible(nbcible);
+                            setScore(20);
                          }
 
+                            //Si c'est une case monstre
+                         if(d_terrain[i][j]->typeCase() == 6){
+                            //On détruit la monstre et on arrête le jeu
+                            caseVide* newCase = new caseVide{d_terrain[i][j]->coinSupG(),d_terrain[i][j]->coinInfD()};
+                            d_terrain[i][j] = newCase;
+                            int nbmonstre = nbMonstre() - 1;
+                            setNbMonstre(nbmonstre);
+                            setScore(10);
+                         }
+
+
                          //Si c'est une case mur
-                         //if(d_terrain[i][j]->typeCase() == )
+                         if(d_terrain[i][j]->typeCase() == 4){
+                             toucheMur();
+                         }
                   }
             }
    }
@@ -346,6 +465,20 @@ void terrain::devierTir(Case *c){
                             }
 
 }
+
+
+void terrain::toucheMur(){
+
+    int x = 200 , y = 200;
+    settextjustify(RIGHT_TEXT,CENTER_TEXT);
+    settextstyle(TRIPLEX_FONT,HORIZ_DIR,5);
+    outtextxy(x, y, "Perdu !");
+    getch();
+    closegraph();
+
+}
+
+
 
 void terrain::ChangeEtatCaseTerrain(const geom::point& p1, const geom::point& p2){
       for(int i = 0; i < d_terrain.size(); i++){

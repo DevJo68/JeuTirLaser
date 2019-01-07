@@ -45,6 +45,8 @@
 		<Unit filename="caselaser.h" />
 		<Unit filename="casemiroir.cpp" />
 		<Unit filename="casemiroir.h" />
+		<Unit filename="casemonstre.cpp" />
+		<Unit filename="casemonstre.h" />
 		<Unit filename="casemur.cpp" />
 		<Unit filename="casemur.h" />
 		<Unit filename="casevide.cpp" />
@@ -61,6 +63,10 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="miroir.cpp" />
 		<Unit filename="miroir.h" />
+		<Unit filename="monstre.cpp" />
+		<Unit filename="monstre.h" />
+		<Unit filename="mur.cpp" />
+		<Unit filename="mur.h" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
 		<Unit filename="terrain.cpp" />

@@ -10,6 +10,10 @@
 #include "cible.h"
 #include "casecible.h"
 #include "caselaser.h"
+#include "monstre.h"
+#include "casemonstre.h"
+#include "mur.h"
+#include "casemur.h"
 #include <time.h>
 #include<iosfwd>
 #include <iostream>
@@ -44,6 +48,9 @@ class terrain
         void creerCaseCible();
         /// ajoute des cases laser sur le terrain a des coordonées i et j tirée au hasard
         void creerCaseLaser();
+        /// ajoute des cases monstre sur le terrain a de coordonées i et j tirée au hasard
+        void creerCaseMonstre();
+        /// ajoute des cases mur sur le terrain a de coordonées i et j tirée au hasard
 
         ///@return un vecteur de vecteur de pointeur sur des cases qui vont constituer notre terrain
         std::vector<std::vector<Case*>>& getTerrain();
@@ -85,6 +92,12 @@ class terrain
         ///@return un int représentant le nombre de cible du terrain
         int nbCible() const;
 
+        ///@return un int représentant le nombre de cible du terrain
+        int nbMonstre() const;
+
+        ///@return un int représentant le score de la partie
+        int nbScore() const ;
+
         /**
           Saisie un nombre de miroir à mettre sur le terrain
           @param int nombre de miroir
@@ -108,6 +121,17 @@ class terrain
           @param int nombre de cible
         */
         void setNbCible(int nbcible);
+
+        /**
+          Saisie un nombre de monstre à mettre sur le terrain
+          @param int nombre de monstre
+        */
+        void setNbMonstre(int nbmonstre);
+
+        /**
+         Modifie le score du joueur
+        */
+        void setScore(int score);
 
         /**
           Méthode qui permet d'effectuer les actions qui vont faire en sorte que le jeu fonctionne
@@ -142,11 +166,21 @@ class terrain
         void devierTir(Case *c);
 
         /**
+         Fonction qui va gérer le jeu dans le cas ou on touche un mur
+        */
+        void toucheMur();
+
+        /**
          Place des miroirs sur le terrain
         */
         void placeMiroir();
 
-        int nombreDejaTirer(std::vector<int>& tab );
+        int nombreDejaTirer(std::vector<int>& tab);
+
+        /**
+         Fonction qui vérifie si le joueur à détruit toutes les cibles afin de le faire gagner
+        */
+        void verifGagner();
 
 
     protected:
@@ -157,6 +191,8 @@ class terrain
         int d_nbmur;
         int d_nbcible;
         int d_nblaser;
+        int d_nbmonstre;
+        int d_score;
         caseLaser* d_laser;
         std::vector<caseMiroir*> d_miroirs;
 

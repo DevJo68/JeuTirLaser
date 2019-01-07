@@ -2,7 +2,7 @@
 #include "point.h"
 
 
-mur::mur(geom::point droite,geom::point gauche,geom::point haut,geom::point bas):
+mur::mur(const geom::point& droite,const geom::point& gauche, const geom::point& haut, const geom::point& bas):
     d_droite{droite}, d_gauche{gauche}, d_haut{haut},d_bas{bas}
 {}
  geom::point mur::droite() const{

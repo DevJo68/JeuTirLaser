@@ -36,10 +36,11 @@ void dessinateur::dessinateurCaseLaserHorizontal(double x1, double y1, double x2
 
 void dessinateur::dessinateurCaseMonstre(double x1, double y1, double x2, double y2) const{
    rectangle(x1,y1,x2,y2);
-   circle((x1+x2)/2,(y1+y2)/2,8);
-   line(x1+5,y1+5,x2-5,y2-5);
-   line(x2-5,y1,x1-5,y2);
-}
+   circle((x1+x2)/2,(y1+y2)/2,6);
+   circle(((x1+x2)/2),((y1+y2)/2)-8,4);
+   line(((x1+x2)/2)-5 ,((y1+y2)/2)-5,((x2+x1)/2)+5,((y2+y1)/2)+5);
+   line(((x1+x2)/2)-5 ,((y1+y2)/2)+5,((x2+x1)/2)-5,((y2+y1)/2)-5);
+   }
 
 void dessinateur::dessinateurCaseMur(double x1, double y1, double x2, double y2)const {
    dessinateurCaseLigne(x1,y1,x2,y2);

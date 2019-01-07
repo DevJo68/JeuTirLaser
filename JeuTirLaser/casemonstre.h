@@ -4,9 +4,9 @@
 #include "case.h"
 #include "monstre.h"
 
-class casemonstre : public Case{
+class caseMonstre : public Case{
     public:
-        casemonstre(const geom::point& p1, const geom::point& p2, monstre *m);
+        caseMonstre(const geom::point& p1, const geom::point& p2, monstre *m);
         virtual void print() const override;
         virtual int typeCase() override;
 
