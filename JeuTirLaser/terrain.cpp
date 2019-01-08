@@ -2,7 +2,7 @@
 
 
     terrain::terrain(int ligne, int colonne):
-         d_nbmiroir{0}
+         d_nbmiroir{0},d_score{0}
     {
        std::vector< std::vector<Case *> > terrain(ligne);
        d_terrain = terrain;
@@ -42,8 +42,6 @@
        for(int k = 0; k < nbMiroir(); k++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain.size()-1);
-                    // std::cout << indiceLigneAleatoire << " " << indiceColonneAleatoire << std::endl;
-                    // std::cout << "Voici les coordonnées du point récupérer " << recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG() << recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD() << std::endl;
                      miroir *pm = new miroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD()};
 
                      if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() != 1) {
@@ -59,10 +57,7 @@
                      else
                         pm->inclineD();
 
-                     //std::cout << " Valeurs des points" << pm->arrivee() << pm->depart() << pm->inclinaison() << std::endl;
                      caseMiroir *cm = new caseMiroir{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pm};
-                    // std::cout << " les indices " << indiceLigneAleatoire << indiceColonneAleatoire << std::endl;
-                    // std::cout << " Les coordonnées des cases " << cm->coinSupG() << " " << cm->coinInfD() << std::endl;
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cm);
                }
     }
@@ -72,15 +67,12 @@
       for(int l = 0; l < nbCible(); l++){
                      int indiceLigneAleatoire = rand() % (d_terrain.size()-1);
                      int indiceColonneAleatoire = rand() % (d_terrain[indiceLigneAleatoire].size()-1);
-
-                     //std::cout << " Type des cases tirés" << recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase()  << std::endl;
                        if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 1) {
 
                      cible *pc = new cible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),8};
 
 
                      caseCible *cib = new caseCible{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pc};
-                       std::cout << indiceLigneAleatoire << " " << indiceColonneAleatoire << std::endl;
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cib);
 
                        }
@@ -102,7 +94,6 @@
                        }
 
                      laser *pl = new laser{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(), recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),false};
-                     std::cout  << " Coordonnée de la case laser "<< pl->pHautGauche() << pl->pBasDroit() << std::endl;
                      caseLaser*cl = new caseLaser{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pl};
                      remplaceCase(indiceLigneAleatoire,indiceColonneAleatoire,cl);
                      d_laser = cl;
@@ -118,7 +109,6 @@
                       if(recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->typeCase() == 1) {
 
                       monstre *pmons = new monstre{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),8};
-
 
                      caseMonstre *cmons = new caseMonstre{recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinSupG(),recupereCase(indiceLigneAleatoire,indiceColonneAleatoire)->coinInfD(),pmons};
 
@@ -161,10 +151,6 @@
    void terrain::afficheTerrain(){
            for(int i = 0; i < d_terrain.size(); i++){
                   for(int j = 0 ; j < d_terrain[i].size() ; j++){
-
-                     //  std::cout <<  "indices des cases " << i << " " << j << std::endl;
-                     //  std::cout << " Coordonées des points du terrain "<< d_terrain[i][j]->coinSupG() << d_terrain[i][j]->coinInfD() << std::endl;
-                     //  std::cout << "Type des cases " << d_terrain[i][j]->typeCase() << std::endl;
                         d_terrain[i][j]->print();
                   }
             }
@@ -404,7 +390,6 @@ void terrain::devierTir(Case *c){
      for(int i = 0; i < d_miroirs.size(); i++ ){
 
                                 if(d_miroirs[i] == c){
-                                    std::cout << "Je suis rentrer youpi !!" << std::endl;
 
                                       if(d_miroirs[i]->inclinaisonMiroir() == 'g'){
 

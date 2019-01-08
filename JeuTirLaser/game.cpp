@@ -35,17 +35,16 @@
 
    while(1){
       int x = 500 , y = 100;
-    //  char* Score =  reinterpret_cast<char*>(t.nbScore());
+       char const* Score =  (char const*) t.nbScore();
+       //std::cout << t.nbScore() << std::endl;
       settextjustify(RIGHT_TEXT,CENTER_TEXT);
       settextstyle(TRIPLEX_FONT,HORIZ_DIR,5);
       outtextxy(x, y, "Score");
-     // outtextxy(x, y,Score);
       t.afficheTerrain();
       t.deplaceLaserSurTerrain();
       t.placeMiroir();
       t.collisionLaser();
       t.verifGagner();
-      std::cout <<" Nombre de miroir " << t.nbMiroir();
       t.afficheTerrain();
       delay(0.00000000000000000001);
     }
